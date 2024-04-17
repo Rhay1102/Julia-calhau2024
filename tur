@@ -1,0 +1,29 @@
+#include <iostream>
+
+int main() {
+    int n;
+    std::cout << "Quantas pessoas na turma?: ";
+    std::cin >> n;
+
+    int soma_idades = 0;
+    for (int i = 0; i < n; ++i) {
+        int idade;
+        std::cout << "Digite a idade da pessoa: " << i + 1 << ": ";
+        std::cin >> idade;
+        soma_idades += idade;
+    }
+
+    double media_idades = static_cast<double>(soma_idades) / n;
+
+    std::cout << "A média de idade da turma é: " << media_idades << std::endl;
+
+    if (media_idades >= 0 && media_idades <= 25) {
+        std::cout << "A turma é jovem." << std::endl;
+    } else if (media_idades <= 60) {
+        std::cout << "A turma é adulta." << std::endl;
+    } else {
+        std::cout << "A turma é idosa." << std::endl;
+    }
+
+    return 0;
+}
