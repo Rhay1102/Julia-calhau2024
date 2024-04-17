@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    int total_eleitores;
+    std::cout << "Digite o número total de eleitores: ";
+    std::cin >> total_eleitores;
+
+    std::vector<int> votos(3, 0); // Inicializa um vetor com três elementos, todos com valor 0
+
+    for (int i = 0; i < total_eleitores; ++i) {
+        int voto;
+        std::cout << "Eleitor " << i + 1 << ", vote no candidato (1, 2 ou 3): ";
+        std::cin >> voto;
+
+        // Verifica se o voto é válido e incrementa o contador de votos do candidato correspondente
+        if (voto >= 1 && voto <= 3) {
+            votos[voto - 1]++;
+        } else {
+            std::cout << "Voto inválido, tente novamente." << std::endl;
+            i--; // Decrementa o contador para repetir a entrada do voto inválido
+        }
+    }
+
+    // Mostra o número de votos de cada candidato
+    std::cout << "\nResultado da eleição:" << std::endl;
+    for (int i = 0; i < 3; ++i) {
+        std::cout << "Candidato " << i + 1 << ": " << votos[i] << " votos" << std::endl;
+    }
+
+    return 0;
+}
